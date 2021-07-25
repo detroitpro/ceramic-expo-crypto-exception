@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const onCreate = () => {
+
+  }
+  
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Button title='create' onPress={onCreate}></Button>
       <StatusBar style="auto" />
     </View>
   );
