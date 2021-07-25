@@ -27,3 +27,9 @@ at node_modules/dids/lib/did.js:8:13 in <anonymous>
 at node_modules/dids/lib/did.js:4:11 in <anonymous>
 at node_modules/@ceramicnetwork/stream-tile/lib/tile-document.js:73:11 in _signDagJWS
 ```
+
+## Expo Snack
+
+https://snack.expo.dev/@git/github.com/detroitpro/ceramic-expo-crypto-exception
+
+- works in web because Ceramic/IDX uses WebCrypto libs. Unsure what shim is required to get same libs in React Native.
