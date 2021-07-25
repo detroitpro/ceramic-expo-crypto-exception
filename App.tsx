@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid'
 import 'react-native-get-random-values'
 import 'fastestsmallesttextencoderdecoder';
+import crypto from 'isomorphic-webcrypto'; // trying to get crypto.suble.digest in react native.
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
