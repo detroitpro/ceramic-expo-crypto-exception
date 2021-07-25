@@ -1,13 +1,13 @@
+// TextEncode/Decode imports
 import { nanoid } from 'nanoid'
 import 'react-native-get-random-values'
 import 'fastestsmallesttextencoderdecoder';
-import crypto from 'isomorphic-webcrypto'; // trying to get crypto.suble.digest in react native.
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 
-
+// ceramic imports.
 import CeramicClient from '@ceramicnetwork/http-client'
 import { IDX } from '@ceramicstudio/idx';
 import KeyDidResolver from 'key-did-resolver';
@@ -32,6 +32,11 @@ export default function App() {
 
     const idx = new IDX({ ceramic });
 
+    // the line below throws an exception in: undefined is not an object (evaluating 'crypto.subtle.digest')]
+    // node_modules/multihashing-async/src/sha.browser.js:35:34 in digest
+    // node_modules/multihashing-async/src/sha.browser.js:53:17
+    // node_modules/multihashing-async/src/index.js:39:27 in Multihashing.digest
+    // node_modules/multihashing-async/src/index.js:22:23 in Multihashing
     const created = await idx.set('basicProfile', { 'name': 'expo' });
     console.debug('createProfile: created:', created.toString()); // stream id
   }
