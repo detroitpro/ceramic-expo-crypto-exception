@@ -16,7 +16,7 @@ import { Ed25519Provider } from 'key-did-provider-ed25519';
 import { fromString } from 'uint8arrays';
 
 export default function App() {
-  const onCreate = async () => {
+  const onUpdate = async () => {
     const API_URL = "https://ceramic-clay.3boxlabs.com"
     const ceramic = new CeramicClient(API_URL, { syncInterval: 100 });
     const resolver = KeyDidResolver.getResolver();
@@ -37,13 +37,14 @@ export default function App() {
     // node_modules/multihashing-async/src/sha.browser.js:53:17
     // node_modules/multihashing-async/src/index.js:39:27 in Multihashing.digest
     // node_modules/multihashing-async/src/index.js:22:23 in Multihashing
-    const created = await idx.set('basicProfile', { 'name': 'expo' });
-    console.debug('createProfile: created:', created.toString()); // stream id
+    console.debug('updating profile')
+    const updated = await idx.set('basicProfile', { 'name': 'expo' });
+    console.debug('updated:', updated.toString()); // stream id
   }
 
   return (
     <View style={styles.container}>
-      <Button title='create' onPress={onCreate}></Button>
+      <Button title='update basic profile/name' onPress={onUpdate}></Button>
       <StatusBar style="auto" />
     </View>
   );
